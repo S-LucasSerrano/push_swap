@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:16:52 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/24 12:01:02 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/24 15:49:18 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,7 @@ void	rr(t_data *data);
 void	rra(t_data *data);
 void	rrb(t_data *data);
 void	rrr(t_data *data);
+
+void	sort_two(t_data *data);
 
 #endif

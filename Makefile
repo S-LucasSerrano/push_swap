@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRC = $(ROOT_C) $(STACK_SRC) $(OP_SRC)
+SRC = $(ROOT_C) $(STACK_SRC) $(OP_SRC) $(ALGO_SRC)
 ROOT_C = main.c error.c
 
 # --- STACKS ---
@@ -13,6 +13,11 @@ OP_C = operation_utils.c swap.c push.c rotate.c reverse_rotate.c
 OP_DIR = operations/
 OP_SRC = $(addprefix $(OP_DIR), $(OP_C))
 
+# --- ALGORITHMS ---
+ALGO_C = small_stacks.c
+ALGO_DIR = algorithms/
+ALGO_SRC = $(addprefix $(ALGO_DIR), $(ALGO_C))
+
 # --- LIBFT ---
 LIBFT_A = libft.a
 LIBF_DIR = libft/
@@ -20,7 +25,7 @@ LIBFT  = $(addprefix $(LIBF_DIR), $(LIBFT_A))
 
 # --- OBJ ---
 OBJ_DIR = _objFiles/
-OBJ_SRC = $(ROOT_C:.c=.o) $(STACK_C:.c=.o) $(OP_C:.c=.o)
+OBJ_SRC = $(ROOT_C:.c=.o) $(STACK_C:.c=.o) $(OP_C:.c=.o) $(ALGO_C:.c=.o)
 OBJ = $(addprefix $(OBJ_DIR), $(OBJ_SRC))
 
 # --- FALGS ---

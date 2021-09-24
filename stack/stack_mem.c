@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 10:40:19 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/24 11:31:49 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/24 15:42:20 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,15 @@ void	stack_addback(t_stack **stack, t_stack *new)
 		*stack = new;
 }
 
-/* Frees <stack> */
-void	free_stack(t_stack **stack)
+/* Frees <stack> and returns 0. */
+int	free_stack(t_stack **stack)
 {
 	if (stack == NULL)
-		return ;
+		return (0);
 	while (*stack)
 	{
 		free(*stack);
 		*stack = (*stack)->next;
 	}
+	return (0);
 }
