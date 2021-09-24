@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:16:52 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/07 17:32:22 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/24 12:01:02 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-# include "stack_lib/stack.h"
+# include "stack/stack.h"
 # include <unistd.h>
 
 typedef enum e_bool
@@ -25,9 +25,11 @@ typedef enum e_bool
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 
-/* Struct with two stacks. */
+/* Struct with two stacks.
+*	And the amunt of numbers to sort. */
 typedef struct s_data
 {
+	int		count;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 }	t_data;

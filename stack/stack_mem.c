@@ -6,14 +6,14 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 10:40:19 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/06 12:18:43 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/24 11:31:49 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
 /* Creates -with malloc- a new element of the
-stack with the <num> and next = NULL */
+stack with the passed num, index -1 and next = NULL */
 t_stack	*stack_new(int num)
 {
 	t_stack	*output;
@@ -22,6 +22,7 @@ t_stack	*stack_new(int num)
 	if (!output)
 		return (NULL);
 	output->num = num;
+	output->index = -1;
 	output->next = NULL;
 	return (output);
 }

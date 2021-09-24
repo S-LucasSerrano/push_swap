@@ -1,13 +1,17 @@
 NAME = push_swap
 
-SRC = $(ROOT_C) $(STACK_SRC)
+SRC = $(ROOT_C) $(STACK_SRC) $(OP_SRC)
 ROOT_C = main.c error.c
 
-# --- STACK_LIB ---
-STACK_C = stack_mem.c stack_get.c \
-	operation_utils.c swap.c push.c rotate.c reverse_rotate.c
-STACK_DIR = stack_lib/
+# --- STACKS ---
+STACK_C = stack_init.c asign_indexes.c stack_mem.c stack_get.c	
+STACK_DIR = stack/
 STACK_SRC = $(addprefix $(STACK_DIR), $(STACK_C))
+
+# --- OPERATIONS ---
+OP_C = operation_utils.c swap.c push.c rotate.c reverse_rotate.c
+OP_DIR = operations/
+OP_SRC = $(addprefix $(OP_DIR), $(OP_C))
 
 # --- LIBFT ---
 LIBFT_A = libft.a
@@ -16,7 +20,7 @@ LIBFT  = $(addprefix $(LIBF_DIR), $(LIBFT_A))
 
 # --- OBJ ---
 OBJ_DIR = _objFiles/
-OBJ_SRC = $(ROOT_C:.c=.o) $(STACK_C:.c=.o)
+OBJ_SRC = $(ROOT_C:.c=.o) $(STACK_C:.c=.o) $(OP_C:.c=.o)
 OBJ = $(addprefix $(OBJ_DIR), $(OBJ_SRC))
 
 # --- FALGS ---
@@ -69,15 +73,28 @@ norm: $(SRC)
 
 # --- TEST ---
 n = 0
-n_valid = $(shell [ $(n) -gt 0 ] && echo 1 )
-ifeq ($(n_valid), 1)
-ARG = $(shell seq -$(n) $(n) | sort -R | head -n $(n) | tr '\n' ' ')
-endif
-test: all
+exe: all
 	@if [ $(n) -le 0 ]; then \
 			echo "\033[31m     MAKE ERROR"; \
-			echo "Usage: \033[0;3;4m< make test n=x >\033[0;31m. x is the length of the number list and must be above 0."; \
+			echo "Usage: \033[0;3;4m< make exe n=x >\033[0;31m. x is the length of the number list and must be above 0."; \
 	else \
-		echo $(YELLOW) "     - Testing $(n) numbers:" $(NONE); \
-		./push_swap $(ARG); \
+		ARG=$$(seq -$(n) $(n) | sort -R | head -n $(n) | tr '\n' ' '); \
+		echo $(YELLOW) "     -Sorting $(n) numbers..." $(NONE); \
+		./push_swap $$ARG; \
+	fi;
+
+check: all
+	@if [ $(n) -le 0 ]; then \
+			echo "\033[31m     MAKE ERROR"; \
+			echo "Usage: \033[0;3;4m< make check n=x >\033[0;31m. x is the length of the number list and must be above 0."; \
+	else \
+		echo $(YELLOW) "     -Sorting $(n) numbers..." $(NONE); \
+		echo $(YELLOW) "-OPERATIONS:" $(NONE); \
+		ARG=$$(seq -$(n) $(n) | sort -R | head -n $(n) | tr '\n' ' '); \
+		RES=$$(./push_swap $$ARG); \
+		echo $$RES; \
+		echo $(YELLOW) "-STEPS:" $(NONE); \
+		./push_swap $$ARG | wc -l; \
+		echo $(YELLOW) "-CHECKER:" $(NONE); \
+		./push_swap $$ARG | ./checker_Mac $$ARG; \
 	fi;

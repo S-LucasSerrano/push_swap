@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:41:22 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/07 17:13:40 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/08 16:51:31 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	r_rotate(t_stack **stack)
 {
-	t_stack *first;
-	
+	t_stack	*first;
+
 	if (!*stack || !(*stack)->next)
 		return ;
 	first = *stack;

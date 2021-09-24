@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 /* Frees a double pointer or table that has the columns end in a NULL.
 Table:
