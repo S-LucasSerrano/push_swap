@@ -6,13 +6,13 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 13:08:29 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/06 14:06:13 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/27 13:01:48 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	swap(t_stack **stack)
+static void	swap_op(t_stack **stack)
 {
 	t_stack	*first;
 
@@ -24,24 +24,22 @@ static void	swap(t_stack **stack)
 	(*stack)->next = first;
 }
 
-/* Swap the first 2 elements at the top of stack A. */
-void	sa(t_data *data)
+void	swap(t_stack_id stack_id, t_data *data)
 {
-	swap(&data->stack_a);
-	write_op("sa\n");
-}
-
-/* Swap the first 2 elements at the top of stack B. */
-void	sb(t_data *data)
-{
-	swap(&data->stack_b);
-	write_op("sb\n");
-}
-
-/* Swap the first 2 elements at the top of the two stacks. */
-void	ss(t_data *data)
-{
-	swap(&data->stack_a);
-	swap(&data->stack_b);
-	write_op("ss\n");
+	if (stack_id == STACK_A)
+	{
+		swap_op(&data->stack_a);
+		write_op("sa\n");
+	}
+	else if (stack_id == STACK_B)
+	{
+		swap_op(&data->stack_b);
+		write_op("sb\n");
+	}
+	else if (stack_id == BOTH)
+	{
+		swap_op(&data->stack_a);
+		swap_op(&data->stack_b);
+		write_op("ss\n");
+	}
 }

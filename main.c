@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:16:48 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/24 16:51:06 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/27 13:21:17 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,5 @@ int	main(int argc, char **argv)
 	if (data.count == 0 || data.count == 1)
 		return (free_stack(&data.stack_a));
 	else if (data.count == 2)
-		sort_two(&data);
+		sort_two(STACK_A, &data);
 }

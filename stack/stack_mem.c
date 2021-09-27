@@ -6,11 +6,11 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 10:40:19 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/24 15:42:20 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/27 13:07:58 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "../push_swap.h"
 
 /* Creates -with malloc- a new element of the
 stack with the passed num, index -1 and next = NULL */

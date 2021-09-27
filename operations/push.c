@@ -6,13 +6,13 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 13:50:14 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/06 14:47:31 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/27 13:04:03 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	push(t_stack **from, t_stack **to)
+static void	push_op(t_stack **from, t_stack **to)
 {
 	t_stack	*first;
 
@@ -24,16 +24,17 @@ static void	push(t_stack **from, t_stack **to)
 	*to = first;
 }
 
-/* Take the first element at the top of B and put it at the top of A */
-void	pa(t_data *data)
+/* Push the first element of one stack on top of the other. */
+void	push(t_stack_id stack_id, t_data *data)
 {
-	push(&data->stack_b, &data->stack_a);
-	write_op("pa\n");
-}
-
-/* Take the first element at the top of A and put it at the top of B */
-void	pb(t_data *data)
-{
-	push(&data->stack_a, &data->stack_b);
-	write_op("pb\n");
+	if (stack_id == STACK_A)
+	{
+		push_op(&data->stack_b, &data->stack_a);
+		write_op("pa\n");
+	}
+	else if (stack_id == STACK_B)
+	{
+		push_op(&data->stack_a, &data->stack_b);
+		write_op("pb\n");
+	}
 }

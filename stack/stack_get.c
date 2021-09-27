@@ -6,11 +6,21 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 10:40:16 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/24 15:27:39 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/27 12:59:21 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "../push_swap.h"
+
+/* Retunrs a stack by its identifier. */
+t_stack	*get_stack(t_stack_id stack_id, t_data *data)
+{
+	if (stack_id == STACK_A)
+		return (data->stack_a);
+	else if (stack_id == STACK_A)
+		return (data->stack_b);
+	return (NULL);
+}
 
 /* Returs a pointer to the last element of <stack> */
 t_stack	*stack_last(t_stack *stack)

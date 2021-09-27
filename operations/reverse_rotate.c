@@ -6,13 +6,13 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:41:22 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/08 16:51:31 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/27 13:01:36 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	r_rotate(t_stack **stack)
+static void	r_rotate_op(t_stack **stack)
 {
 	t_stack	*first;
 
@@ -24,26 +24,24 @@ static void	r_rotate(t_stack **stack)
 	stack_prev(*stack, *stack)->next = NULL;
 }
 
-/* Shift down all elements of stack A by 1.
+/* Shift down all elements of a stack by 1.
 The last element becomes the first one. */
-void	rra(t_data *data)
+void	r_rotate(t_stack_id stack_id, t_data *data)
 {
-	r_rotate(&data->stack_a);
-	write_op("rra\n");
-}
-
-/* Shift down all elements of stack B by 1.
-The last element becomes the first one. */
-void	rrb(t_data *data)
-{
-	r_rotate(&data->stack_b);
-	write_op("rrb\n");
-}
-
-/* 	Shift down all elements of the two stacks. */
-void	rrr(t_data *data)
-{
-	r_rotate(&data->stack_a);
-	r_rotate(&data->stack_b);
-	write_op("rrr\n");
+	if (stack_id == STACK_A)
+	{
+		r_rotate_op(&data->stack_a);
+		write_op("rra\n");
+	}
+	else if (stack_id == STACK_B)
+	{
+		r_rotate_op(&data->stack_b);
+		write_op("rrb\n");
+	}
+	else if (stack_id == BOTH)
+	{
+		r_rotate_op(&data->stack_a);
+		r_rotate_op(&data->stack_b);
+		write_op("rrr\n");
+	}
 }

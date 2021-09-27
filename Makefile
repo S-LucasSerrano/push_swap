@@ -9,7 +9,7 @@ STACK_DIR = stack/
 STACK_SRC = $(addprefix $(STACK_DIR), $(STACK_C))
 
 # --- OPERATIONS ---
-OP_C = operation_utils.c swap.c push.c rotate.c reverse_rotate.c
+OP_C = swap.c push.c rotate.c reverse_rotate.c operation_utils.c put_on.c
 OP_DIR = operations/
 OP_SRC = $(addprefix $(OP_DIR), $(OP_C))
 
@@ -99,7 +99,7 @@ check: all
 		RES=$$(./push_swap $$ARG); \
 		echo $$RES; \
 		echo $(YELLOW) "-STEPS:" $(NONE); \
-		./push_swap $$ARG | wc -l; \
+		echo $$(./push_swap $$ARG | wc -l); \
 		echo $(YELLOW) "-CHECKER:" $(NONE); \
 		./push_swap $$ARG | ./checker_Mac $$ARG; \
 	fi;
