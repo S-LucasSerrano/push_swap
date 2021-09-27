@@ -4,7 +4,7 @@ SRC = $(ROOT_C) $(STACK_SRC) $(OP_SRC) $(ALGO_SRC)
 ROOT_C = main.c error.c
 
 # --- STACKS ---
-STACK_C = stack_init.c asign_indexes.c stack_mem.c stack_get.c	
+STACK_C = stack_init.c asign_indexes.c stack_mem.c stack_utils.c get_node.c	
 STACK_DIR = stack/
 STACK_SRC = $(addprefix $(STACK_DIR), $(STACK_C))
 
@@ -14,7 +14,7 @@ OP_DIR = operations/
 OP_SRC = $(addprefix $(OP_DIR), $(OP_C))
 
 # --- ALGORITHMS ---
-ALGO_C = small_stacks.c
+ALGO_C = insertion_sort.c
 ALGO_DIR = algorithms/
 ALGO_SRC = $(addprefix $(ALGO_DIR), $(ALGO_C))
 
@@ -94,8 +94,10 @@ check: all
 			echo "Usage: \033[0;3;4m< make check n=x >\033[0;31m. x is the length of the number list and must be above 0."; \
 	else \
 		echo $(YELLOW) "     -Sorting $(n) numbers..." $(NONE); \
-		echo $(YELLOW) "-OPERATIONS:" $(NONE); \
 		ARG=$$(seq -$(n) $(n) | sort -R | head -n $(n) | tr '\n' ' '); \
+		echo $(YELLOW) "-NUMBERS:" $(NONE); \
+		echo $$ARG; \
+		echo $(YELLOW) "-OPERATIONS:" $(NONE); \
 		RES=$$(./push_swap $$ARG); \
 		echo $$RES; \
 		echo $(YELLOW) "-STEPS:" $(NONE); \

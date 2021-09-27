@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:25:21 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/27 13:01:44 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/27 15:21:14 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ static void	rotate_op(t_stack **stack)
 *	The first element becomes the last one. */
 void	rotate(t_stack_id stack_id, t_data *data)
 {
-	if (stack_id == STACK_A)
+	if (stack_id == A_STACK)
 	{
 		rotate_op(&data->stack_a);
 		write_op("ra\n");
 	}
-	else if (stack_id == STACK_B)
+	else if (stack_id == B_STACK)
 	{
 		rotate_op(&data->stack_b);
 		write_op("rb\n");

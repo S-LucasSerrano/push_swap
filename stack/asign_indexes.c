@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 11:25:20 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/27 12:31:48 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/27 16:17:01 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ static void	sort_list(int *list, int len)
 	}
 }
 
+/* Set the indexes of <data> according to <list>. */
 static void	get_indexes(int *list, t_data *data)
 {
 	t_stack	*current;
@@ -80,7 +81,7 @@ static void	get_indexes(int *list, t_data *data)
 	}
 }
 
-/* Asign the indexes to the elements of stack a.
+/* 	Asign the indexes to the elements of stack a.
 *	Returning -1 if there was a problem during the process. */
 t_bool	asign_indexes(t_data *data)
 {
