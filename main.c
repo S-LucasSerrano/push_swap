@@ -6,12 +6,11 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:16:48 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/27 16:17:06 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/29 15:17:38 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	print_stacks(t_data data)
 {

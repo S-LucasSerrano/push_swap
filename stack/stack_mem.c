@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 10:40:19 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/27 13:07:58 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/29 15:27:14 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,33 @@ t_stack	*stack_new(int num)
 	output->num = num;
 	output->index = -1;
 	output->next = NULL;
+	output->prev = NULL;
 	return (output);
 }
 
-/* Adds <new> at the end of <stack> */
-void	stack_addback(t_stack **stack, t_stack *new)
+/* 	Adds <new> at the end of <stack>.
+ *	Returning FALSE if the new number is already in the stack. */
+t_bool	stack_addback(t_stack **stack, t_stack *new)
 {
-	if (*stack)
-		(stack_last(*stack))->next = new;
-	else
+	t_stack	*current;	
+
+	if (!*stack)
+	{
 		*stack = new;
+		return (TRUE);
+	}	
+	current = *stack;
+	while (TRUE)
+	{
+		if (current->num == new->num)
+			return (FALSE);
+		if (!current->next)
+			break ;
+		current = current->next;
+	}
+	current->next = new;
+	new->prev = current;
+	return (TRUE);
 }
 
 /* Frees <stack> and returns 0. */

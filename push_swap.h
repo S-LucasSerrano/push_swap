@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:16:52 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/27 16:14:24 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/29 15:18:40 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft/libft.h"
 # include <unistd.h>
+# include <stdio.h>
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
@@ -34,6 +35,7 @@ typedef struct s_node
 	int				num;
 	int				index;
 	struct s_node	*next;
+	struct s_node	*prev;
 }	t_stack;
 
 /*	Struct with two stacks and the amunt of numbers to sort. */
@@ -62,7 +64,7 @@ void	*null_error(char *message);
 t_stack	*init_stack(int argc, char **argv);
 
 t_stack	*stack_new(int num);
-void	stack_addback(t_stack **stack, t_stack *new);
+t_bool	stack_addback(t_stack **stack, t_stack *new);
 int		free_stack(t_stack **stack);
 
 t_bool	asign_indexes(t_data *data);
@@ -96,5 +98,9 @@ void	sort_two(t_stack_id stack_id, t_data *data);
 void	sort_three(t_stack_id stack_id, t_data *data);
 void	sort_four(t_data *data);
 void	insertion_sort(t_data *data);
+
+// --- FORBIDEN
+
+void	print_stacks(t_data data);
 
 #endif

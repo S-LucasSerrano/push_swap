@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 16:56:42 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/24 12:05:15 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/29 15:12:33 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ static t_stack	*multi_param_stack(char **argv)
 				return (stack_error(&stack, "Error\n"));
 			i++;
 		}
-		stack_addback(&stack, stack_new(ft_atoi(*argv)));
+		if (!stack_addback(&stack, stack_new(ft_atoi(*argv))))
+			return (stack_error(&stack, "Error\n"));
 		argv += 1;
 	}
 	return (stack);
