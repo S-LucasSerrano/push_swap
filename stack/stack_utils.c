@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 10:40:16 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/27 16:10:24 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/30 13:28:45 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_stack	*get_stack(t_stack_id stack_id, t_data *data)
 {
 	if (stack_id == A_STACK)
 		return (data->stack_a);
-	else if (stack_id == A_STACK)
+	else if (stack_id == B_STACK)
 		return (data->stack_b);
 	return (NULL);
 }

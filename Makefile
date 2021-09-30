@@ -14,7 +14,7 @@ OP_DIR = operations/
 OP_SRC = $(addprefix $(OP_DIR), $(OP_C))
 
 # --- ALGORITHMS ---
-ALGO_C = insertion_sort.c
+ALGO_C = insertion_sort.c layer_sort.c sandwich_sort.c
 ALGO_DIR = algorithms/
 ALGO_SRC = $(addprefix $(ALGO_DIR), $(ALGO_C))
 
@@ -98,10 +98,12 @@ check: all
 		echo $(YELLOW) "-NUMBERS:" $(NONE); \
 		echo $$ARG; \
 		echo $(YELLOW) "-OPERATIONS:" $(NONE); \
-		RES=$$(./push_swap $$ARG); \
+		./push_swap $$ARG > .push_swap_output; \
+		echo $$(cat .push_swap_output) ; \
 		echo $$RES; \
 		echo $(YELLOW) "-STEPS:" $(NONE); \
-		echo $$(./push_swap $$ARG | wc -l); \
+		echo $$(cat .push_swap_output | wc -l) ; \
 		echo $(YELLOW) "-CHECKER:" $(NONE); \
-		./push_swap $$ARG | ./checker_Mac $$ARG; \
+		cat .push_swap_output | ./checker $$ARG; \
+		rm -rf .push_swap_output ; \
 	fi;

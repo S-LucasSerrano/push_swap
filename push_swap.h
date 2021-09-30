@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:16:52 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/29 15:18:40 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/30 16:37:38 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,16 @@ void	sort_two(t_stack_id stack_id, t_data *data);
 void	sort_three(t_stack_id stack_id, t_data *data);
 void	sort_four(t_data *data);
 void	insertion_sort(t_data *data);
+
+# define HUN_CHUNCK 25
+# define FIVEHUN_CHUNCK 50
+
+int		find_top_node(t_stack *stack, int chunk);
+int		find_bot_node(t_stack *stack, int chunk);
+void	return_to_a(t_data *data);
+
+void	layer_sort(t_data *data, int chunk_size);
+void	sandwich_sort(t_data *data, int chunk_size);
 
 // --- FORBIDEN
 

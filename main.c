@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:16:48 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/29 15:17:38 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/09/30 16:19:47 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	print_stacks(t_data data)
 	{
 		if (data.stack_a && data.stack_b)
 			printf(" -- %3d --- %3d -- \n",
-				data.stack_a->num, data.stack_b->num);
+				data.stack_a->index, data.stack_b->index);
 		else
 		{
 			if (!data.stack_b)
-				printf(" -- %3d ---   . -- \n", data.stack_a->num);
+				printf(" -- %3d ---   . -- \n", data.stack_a->index);
 			if (!data.stack_a)
-				printf(" --   . --- %3d -- \n", data.stack_b->num);
+				printf(" --   . --- %3d -- \n", data.stack_b->index);
 		}
 		if (data.stack_a)
 			data.stack_a = data.stack_a->next;
@@ -50,6 +50,12 @@ int	main(int argc, char **argv)
 		sort_two(A_STACK, &data);
 	else if (data.count == 3)
 		sort_three(A_STACK, &data);
-	else
+	else if (data.count <= HUN_CHUNCK)
 		insertion_sort(&data);
+	else if (data.count <= 250)
+		sandwich_sort(&data, HUN_CHUNCK);
+	else
+		sandwich_sort(&data, FIVEHUN_CHUNCK);
+	free_stack(&data.stack_a);
+	return (0);
 }
