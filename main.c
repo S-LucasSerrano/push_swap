@@ -6,35 +6,11 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:16:48 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/11/09 12:28:20 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/11/09 13:32:24 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_stacks(t_data data)
-{
-	printf("\n ----------------- \n");
-	printf(" --  A  ---  B  -- \n");
-	while (data.stack_a || data.stack_b)
-	{
-		if (data.stack_a && data.stack_b)
-			printf(" -- %3d --- %3d -- \n",
-				data.stack_a->index, data.stack_b->index);
-		else
-		{
-			if (!data.stack_b)
-				printf(" -- %3d ---   . -- \n", data.stack_a->index);
-			if (!data.stack_a)
-				printf(" --   . --- %3d -- \n", data.stack_b->index);
-		}
-		if (data.stack_a)
-			data.stack_a = data.stack_a->next;
-		if (data.stack_b)
-			data.stack_b = data.stack_b->next;
-	}
-	printf(" ----------------- \n");
-}
 
 /* ---------- */
 int	main(int argc, char **argv)

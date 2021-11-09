@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:16:52 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/30 16:37:38 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/11/09 13:32:41 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,9 +108,5 @@ void	return_to_a(t_data *data);
 
 void	layer_sort(t_data *data, int chunk_size);
 void	sandwich_sort(t_data *data, int chunk_size);
-
-// --- FORBIDEN
-
-void	print_stacks(t_data data);
 
 #endif

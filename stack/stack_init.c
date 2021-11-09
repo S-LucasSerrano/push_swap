@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 16:56:42 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/29 15:12:33 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/11/09 13:34:06 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,7 @@ static t_stack	*one_param_stack(char **argv)
 	or all nums in argv[0] if there is only one parameter. */
 t_stack	*init_stack(int argc, char **argv)
 {
-	if (argc < 2)
-		return (null_error("Error\n"));
-	else if (argc == 2)
+	if (argc == 2)
 		return (one_param_stack(argv));
 	return (multi_param_stack(argv));
 }
