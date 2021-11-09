@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 11:25:20 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/27 16:17:01 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/11/09 12:29:18 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static void	fill_list(int *list, t_stack *stack)
 	i = 0;
 	while (current)
 	{
-		list[i++] = current->num;
+		list[i] = current->num;
+		i++;
 		current = current->next;
 	}
 }
@@ -87,11 +88,11 @@ t_bool	asign_indexes(t_data *data)
 {
 	int		*list;
 
-	list = ft_calloc(data->count, sizeof(int));
+	data->count = stacklen(data->stack_a);
+	list = malloc(data->count * sizeof(int));
 	if (!list)
 		return (FALSE);
 	fill_list(list, data->stack_a);
-	data->count = stacklen(data->stack_a);
 	sort_list(list, data->count);
 	get_indexes(list, data);
 	free(list);

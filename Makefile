@@ -45,7 +45,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@make -C $(LIBF_DIR)
 	@echo $(CURSIVE)$(GRAY) "     - Compiling $(NAME)..." $(NONE)
-	@gcc $(FLAGS) $(LIBFT) $(OBJ) -o $(NAME)
+	@gcc $(FLAGS) $(LIBFT) $(OBJ) -g3 -o $(NAME)
 	@echo $(GREEN)"- Compiled -"$(NONE)
 
 $(OBJ): $(SRC)

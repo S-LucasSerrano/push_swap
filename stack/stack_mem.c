@@ -6,7 +6,7 @@
 /*   By: slucas-s <slucas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 10:40:19 by slucas-s          #+#    #+#             */
-/*   Updated: 2021/09/29 15:27:14 by slucas-s         ###   ########.fr       */
+/*   Updated: 2021/11/09 12:27:14 by slucas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,19 @@ t_bool	stack_addback(t_stack **stack, t_stack *new)
 /* Frees <stack> and returns 0. */
 int	free_stack(t_stack **stack)
 {
-	if (stack == NULL)
+	t_stack *aux;
+	t_stack	*new_next;
+
+	if (stack == NULL || *stack == NULL)
 		return (0);
-	while (*stack)
+	aux = *stack;
+	while (aux)
 	{
-		free(*stack);
-		*stack = (*stack)->next;
+		new_next = aux->next;
+		free(aux);
+		aux = new_next;
 	}
+	aux = NULL;
+	*stack = NULL;
 	return (0);
 }
